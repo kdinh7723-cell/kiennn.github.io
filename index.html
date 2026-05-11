@@ -11,6 +11,12 @@ body {
     background: linear-gradient(to bottom, #dfe9f3, #ffffff);
     text-align: center;
     margin: 0;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .container {
@@ -23,6 +29,13 @@ body {
     border-radius: 50%;
     margin-top: 20px;
     border: 3px solid white;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
 }
 
 h1 {
@@ -48,6 +61,11 @@ h1 {
     padding: 15px;
     border-radius: 15px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.social a:hover {
+    transform: scale(1.2);
 }
 
 .card {
@@ -58,6 +76,11 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .btn {
@@ -67,6 +90,18 @@ h1 {
     border-radius: 10px;
     text-decoration: none;
 }
+
+/* nút nhạc */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: black;
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
 </style>
 
 </head>
@@ -74,7 +109,7 @@ h1 {
 
 <div class="container">
 
-<img class="avatar" src="https://i.imgur.com/2yaf2wb.png">
+<img class="avatar" src="avatar.jpg">
 
 <h2>Hi, I am</h2>
 <h1>Bố Kiên ios 🇻🇳</h1>
@@ -102,6 +137,26 @@ h1 {
 </div>
 
 </div>
+
+<!-- NHẠC -->
+<audio id="music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-btn" onclick="toggleMusic()">🎵</div>
+
+<script>
+let isPlaying = false;
+function toggleMusic(){
+    let music = document.getElementById("music");
+    if(isPlaying){
+        music.pause();
+    } else {
+        music.play();
+    }
+    isPlaying = !isPlaying;
+}
+</script>
 
 </body>
 </html>
