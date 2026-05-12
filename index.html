@@ -241,18 +241,22 @@ Vào
 
 </div>
 
-<audio id="music" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+<audio id="bgMusic" autoplay loop>
+  <source src="music.mp3" type="audio/mp3">
 </audio>
 
-<div class="music" onclick="playMusic()">
-🎵
-</div>
-
 <script>
-function playMusic(){
-document.getElementById("music").play();
-}
+window.addEventListener("load", () => {
+  const music = document.getElementById("bgMusic");
+
+  music.play().catch(() => {
+    document.body.addEventListener(
+      "touchstart",
+      () => music.play(),
+      { once: true }
+    );
+  });
+});
 </script>
 
 </body>
