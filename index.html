@@ -15,14 +15,15 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+background:linear-gradient(180deg,#38bdf8,#0ea5e9,#0369a1);
 min-height:100vh;
 overflow-x:hidden;
 color:white;
 animation:fade 1.2s ease;
+position:relative;
 }
 
-/* hiệu ứng mở web */
+/* mở web */
 @keyframes fade{
 from{
 opacity:0;
@@ -32,6 +33,18 @@ to{
 opacity:1;
 transform:translateY(0);
 }
+}
+
+/* mặt trời mùa hè */
+.sun{
+position:absolute;
+top:40px;
+right:30px;
+width:100px;
+height:100px;
+background:#ffd54f;
+border-radius:50%;
+box-shadow:0 0 80px #ffd54f;
 }
 
 /* nền glow */
@@ -46,14 +59,14 @@ overflow:hidden;
 .circle{
 position:absolute;
 border-radius:50%;
-background:rgba(0,140,255,.15);
-filter:blur(60px);
-animation:move 10s infinite alternate;
+background:rgba(255,255,255,.12);
+filter:blur(70px);
+animation:move 8s infinite alternate;
 }
 
 .c1{
-width:200px;
-height:200px;
+width:220px;
+height:220px;
 top:10%;
 left:5%;
 }
@@ -61,17 +74,13 @@ left:5%;
 .c2{
 width:300px;
 height:300px;
-bottom:10%;
+bottom:15%;
 right:5%;
 }
 
 @keyframes move{
-from{
-transform:translateY(0px);
-}
-to{
-transform:translateY(-30px);
-}
+from{transform:translateY(0);}
+to{transform:translateY(-25px);}
 }
 
 .container{
@@ -81,16 +90,15 @@ text-align:center;
 
 /* avatar */
 .avatar{
-width:140px;
-height:140px;
+width:145px;
+height:145px;
 border-radius:50%;
 object-fit:cover;
 border:4px solid rgba(255,255,255,.8);
 
 box-shadow:
-0 0 20px rgba(0,140,255,.8),
-0 0 50px rgba(0,140,255,.5),
-0 0 90px rgba(0,140,255,.4);
+0 0 25px rgba(255,255,255,.7),
+0 0 60px rgba(56,189,248,.8);
 
 animation:float 3s ease-in-out infinite;
 }
@@ -103,23 +111,22 @@ animation:float 3s ease-in-out infinite;
 
 h2{
 margin-top:18px;
-font-weight:normal;
-opacity:.8;
+opacity:.9;
 }
 
 h1{
 font-size:34px;
 margin-top:8px;
-text-shadow:0 0 15px rgba(0,140,255,.5);
+text-shadow:0 0 20px rgba(255,255,255,.5);
 }
 
 .subtitle{
 margin-top:10px;
-color:#60a5fa;
+color:#e0f2fe;
 font-size:18px;
 }
 
-/* nút */
+/* social */
 .social{
 display:flex;
 justify-content:center;
@@ -131,7 +138,7 @@ margin-top:25px;
 width:70px;
 height:70px;
 border-radius:20px;
-background:rgba(255,255,255,.1);
+background:rgba(255,255,255,.15);
 backdrop-filter:blur(10px);
 display:flex;
 justify-content:center;
@@ -139,7 +146,7 @@ align-items:center;
 font-size:30px;
 text-decoration:none;
 transition:.3s;
-box-shadow:0 0 20px rgba(255,255,255,.1);
+box-shadow:0 0 20px rgba(255,255,255,.15);
 }
 
 .social a:hover{
@@ -149,7 +156,7 @@ transform:scale(1.08);
 /* card */
 .card{
 margin-top:20px;
-background:rgba(255,255,255,.08);
+background:rgba(255,255,255,.12);
 backdrop-filter:blur(15px);
 border-radius:25px;
 padding:22px;
@@ -157,7 +164,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 transition:.3s;
-box-shadow:0 0 20px rgba(255,255,255,.08);
+box-shadow:0 0 20px rgba(255,255,255,.12);
 }
 
 .card:hover{
@@ -173,26 +180,38 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* nút nhạc */
-.music{
+/* sóng biển */
+.wave{
 position:fixed;
-bottom:25px;
-right:25px;
-width:65px;
-height:65px;
-border-radius:50%;
-background:#2563eb;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:28px;
-box-shadow:0 0 20px rgba(37,99,235,.7);
-cursor:pointer;
+left:0;
+bottom:0;
+width:200%;
+height:160px;
+background:rgba(255,255,255,.2);
+border-radius:43%;
+animation:waveMove 10s linear infinite;
+}
+
+.wave2{
+bottom:-30px;
+opacity:.4;
+animation-duration:14s;
+}
+
+@keyframes waveMove{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
 }
 </style>
 </head>
 
 <body>
+
+<div class="sun"></div>
 
 <div class="bg">
 <div class="circle c1"></div>
@@ -201,7 +220,6 @@ cursor:pointer;
 
 <div class="container">
 
-<!-- avatar -->
 <img src="./IMG_1477.jpeg" class="avatar">
 
 <h2>Hi, I am</h2>
@@ -212,8 +230,10 @@ App • Game • iOS • VIP
 </p>
 
 <div class="social">
-<a href="https://www.facebook.com/share/18ZX6LEz1y/?mibextid=wwXIfr">
-📘
+<a href="https://www.facebook.com/share/18ZX6LEz1y/?mibextid=wwXIfr">📘</a>
+
+<a href="https://www.tiktok.com/@kien.228?_r=1&_t=ZS-96KPY8Q1ult">
+🎵
 </a>
 </div>
 
@@ -221,6 +241,14 @@ App • Game • iOS • VIP
 <span>Facebook cá nhân</span>
 <a class="btn"
 href="https://www.facebook.com/share/18ZX6LEz1y/?mibextid=wwXIfr">
+Mở
+</a>
+</div>
+
+<div class="card">
+<span>TikTok cá nhân</span>
+<a class="btn"
+href="https://www.tiktok.com/@kien.228?_r=1&_t=ZS-96KPY8Q1ult">
 Mở
 </a>
 </div>
@@ -241,12 +269,16 @@ Vào
 
 </div>
 
+<div class="wave"></div>
+<div class="wave wave2"></div>
+
 <audio id="bgMusic" autoplay loop>
-  <source src="tiktok_audio.mp3" type="audio/mpeg">
+<source src="tiktok_audio.mp3" type="audio/mpeg">
 </audio>
+
 <script>
 document.addEventListener("click", function () {
-  document.getElementById("bgMusic").play();
+document.getElementById("bgMusic").play();
 }, { once: true });
 </script>
 
